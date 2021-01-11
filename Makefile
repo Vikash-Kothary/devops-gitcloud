@@ -9,6 +9,7 @@ GITCLOUD_DEVOPS_DESCRIPTION ?= "Images and Containers for Gitcloud Services."
 ENV := local
 -include config/.env.${ENV}
 -include config/secrets/.env.${ENV}
+export
 
 .DEFAULT_GOAL := help-devops
 .PHONY: help-devops #: List available command.
