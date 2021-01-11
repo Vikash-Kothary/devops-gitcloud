@@ -70,4 +70,4 @@ deploy-devops:
 .PHONY: clean-devops #: 
 clean: clean-devops # alias for quick access
 clean-devops:
-	@false
+	@${SHELL} scripts/clean-devops.sh
