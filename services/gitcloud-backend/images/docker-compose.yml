@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+
+  backend:
+    image: ${DOCKER_IMAGE}:${DOCKER_VERSION}
+    build:
+      context: .
+      dockerfile: Dockerfile
