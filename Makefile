@@ -34,7 +34,7 @@ test-devops:
 .PHONY: build-devops #: Build images.
 build: build-devops # alias for quick access
 build-devops:
-	@false
+	@${SHELL} scripts/build-devops.sh
 
 .PHONY: run-devops #: Run examples.
 run: run-devops # alias for quick access
