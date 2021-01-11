@@ -2,7 +2,7 @@ version: '3.7'
 services:
 
   backend:
-    image: ${DOCKER_IMAGE}:${DOCKER_VERSION}
+    image: ${DOCKER_IMAGE:-gitcloud-backend}:${DOCKER_VERSION:-latest}
     build:
       context: .
       dockerfile: Dockerfile
