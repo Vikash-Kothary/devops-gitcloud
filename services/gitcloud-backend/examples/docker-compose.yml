@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+
+  backend:
+    image: ${DOCKER_IMAGE:-gitcloud-backend}:${DOCKER_VERSION:-latest}
+    container_name: gitcloud_backend_48080
+    ports:
+      - 48080:48080
+    environment:
+      - SERVER_PORT=48080
+    restart: always
+    stdin_open: true
+    tty: true
+
+  
