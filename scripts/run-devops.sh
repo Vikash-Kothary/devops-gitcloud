@@ -7,7 +7,7 @@ run_example () {
 	SERVICE=$1
 	echo "Building Service: ${SERVICE}."
 
-	pushd services/${SERVICE}/images > /dev/null
+	pushd services/${SERVICE}/examples > /dev/null
 
 	echo "--- Extract software metadata."
 	SOFTWARE_VERSION=0.1.0
