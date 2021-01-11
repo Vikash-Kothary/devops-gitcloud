@@ -40,7 +40,7 @@ build-devops:
 .PHONY: run-devops #: Run examples.
 run: run-devops # alias for quick access
 run-devops:
-	@false
+	@${SHELL} scripts/run-devops.sh
 
 # Run scripts using make
 %-script:
