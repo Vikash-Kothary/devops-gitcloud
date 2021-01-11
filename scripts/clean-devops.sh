@@ -29,7 +29,7 @@ pushd ${GITCLOUD_DEVOPS_PATH:=.}
 
 for service in services/${SERVICE:=*}/ ; do
 	clean_image $(basename ${service})
-	docker images aem
+	docker images
 done
 
 popd > /dev/null
