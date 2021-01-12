@@ -66,7 +66,7 @@ package-devops:
 .PHONY: deploy-devops #: Deploy to Heroku.
 deploy: deploy-devops # alias for quick access
 deploy-devops:
-	@false
+	@${SHELL} scripts/deploy-heroku.sh
 
 .PHONY: clean-devops #: 
 clean: clean-devops # alias for quick access
