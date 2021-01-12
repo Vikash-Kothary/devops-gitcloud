@@ -7,7 +7,8 @@ ARG JAR_FILE=release/*.jar
 
 COPY ${JAR_FILE} gitcloud.jar
 
-EXPOSE 48080
+ENV PORT=${PORT}
+EXPOSE ${PORT}
 
 ENTRYPOINT ["java"]
-CMD ["-jar", "gitcloud.jar"]
+CMD ["-jar", "gitcloud.jar", "--server.port=${PORT}"]

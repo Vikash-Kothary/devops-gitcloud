@@ -7,7 +7,7 @@ services:
     ports:
       - 48080:48080
     environment:
-      - SERVER_PORT=48080
+      - PORT=${PORT}
     restart: always
     stdin_open: true
     tty: true
