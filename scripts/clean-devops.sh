@@ -20,7 +20,7 @@ clean_image () {
 	echo "--- Docker Version: ${DOCKER_VERSION}"
 	
 	echo "Remove all unused images."
-	docker image prune -f
+	docker image prune -fa
 
 	popd > /dev/null
 }
