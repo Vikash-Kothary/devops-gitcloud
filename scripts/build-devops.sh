@@ -16,8 +16,8 @@ build_image () {
 	export DOCKER_IMAGE=gitcloud-backend-${SOFTWARE_VERSION}
 	export DOCKER_VERSION="$(date +%Y.%m.%d)-$(git rev-parse --short HEAD)"
 	
-	echo "$DOCKER_IMAGE"
-	echo "$DOCKER_VERSION"
+	echo "--- Docker Image: ${DOCKER_IMAGE}"
+	echo "--- Docker Version: ${DOCKER_VERSION}"
 	docker-compose build
 
 	# Exit with error if build fails
