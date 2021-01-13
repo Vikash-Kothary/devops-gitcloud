@@ -37,6 +37,7 @@ before_script:
 build:
   stage: build
   script:
+    - make download-release-script
     - make build-devops
 
 # release:
