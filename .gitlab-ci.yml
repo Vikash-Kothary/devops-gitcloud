@@ -1,0 +1,61 @@
+---
+image: docker/compose:latest
+
+services:
+  - docker:dind
+
+variables:
+  ENV: ci
+  CI: "true"
+
+stages:
+  - clean
+  - lint
+  - tests
+  - build
+  - release
+  - package
+  - deploy
+
+before_script:
+  - apk update && apk add bash make git
+  - echo
+  - make help-devops
+  # - echo
+  # - make init-devops
+
+# lint:
+#   stage: lint
+#   script:
+#     - make lint-devops
+
+# tests:
+#   stage: tests
+#   script:
+#     - make tests-devops
+
+build:
+  stage: build
+  script:
+    - make build-devops
+
+# release:
+#   stage: release
+#   script:
+#     - make release-devops
+#   only:
+#     - develop
+
+# package:
+#   stage: package
+#   script:
+#     - make package-devops
+#   only:
+#     - develop
+  
+deploy:
+  stage: deploy
+  script:
+    - make deploy-devops
+  # only:
+  #   - develop
