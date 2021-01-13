@@ -35,6 +35,11 @@ download_release () {
 	${PACKAGE_URL} \
 	-P ${PACKAGE_FOLDER}
 
+	# Exit with error if download fails
+	if [[ $? == 1 ]]; then
+		exit 1
+	fi
+
 	echo "--- Unpacking release"
 	unzip ${PACKAGE_FOLDER}/${PACKAGE_FILENAME} -d ${PACKAGE_FOLDER}/. -o
 
