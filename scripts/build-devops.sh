@@ -20,6 +20,11 @@ build_image () {
 	echo "$DOCKER_VERSION"
 	docker-compose build
 
+	# Exit with error if build fails
+	if [[ $? == 1 ]]; then
+		exit 1
+	fi
+
 	popd > /dev/null
 }
 
