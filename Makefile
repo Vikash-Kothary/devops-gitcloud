@@ -51,7 +51,7 @@ run-devops:
 .PHONY: init-devops #: Login and pull images.
 init: init-devops # alias for quick access
 init-devops:
-	@false
+	@${SHELL} scripts/init-devops.sh
 
 .PHONY: release-devops #: Release and push docker images
 release: release-devops # alias for quick access
