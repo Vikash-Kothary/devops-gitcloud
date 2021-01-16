@@ -6,3 +6,5 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - GITCLOUD_BACKEND_RELEASE_AUTH=${GITCLOUD_BACKEND_RELEASE_AUTH}
