@@ -12,13 +12,13 @@ variables:
   DOCKER_PASSWORD: ${CI_REGISTRY_PASSWORD}
 
 stages:
-  - clean
   - lint
   - tests
   - build
   - release
   - package
   - deploy
+  - clean
 
 before_script:
   - apk update && apk add bash make git
