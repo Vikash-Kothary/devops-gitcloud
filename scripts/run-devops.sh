@@ -13,7 +13,7 @@ run_example () {
 	SOFTWARE_VERSION=0.1.0
 
 	echo "--- Building docker images."
-	export DOCKER_IMAGE=gitcloud-backend-${SOFTWARE_VERSION}
+	export DOCKER_IMAGE=${SERVICE}-${SOFTWARE_VERSION}
 	
 	echo "--- Docker Image: ${DOCKER_IMAGE}"
 	docker-compose up ${CONTAINER}
