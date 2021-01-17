@@ -11,7 +11,12 @@ release_image () {
 
 	BUILD_DOCKER_IMAGE=${SERVICE}:latest
 	docker pull ${BUILD_DOCKER_IMAGE}
-	
+
+	# Exit with error if pull fails
+	if [[ $? == 1 ]]; then
+		exit 1
+	fi
+
 	# With Software Version
 	SOFTWARE_VERSION=0.1.0
 	export DOCKER_IMAGE=${DOCKER_REGISTRY}/${SERVICE}-${SOFTWARE_VERSION}
