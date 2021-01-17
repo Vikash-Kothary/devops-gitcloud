@@ -5,9 +5,9 @@ services:
     image: ${DOCKER_IMAGE:-gitcloud-backend}:${DOCKER_VERSION:-latest}
     container_name: gitcloud_backend_48080
     ports:
-      - 48080:48080
+      - ${GITCLOUD_BACKEND_PORT}:${GITCLOUD_BACKEND_PORT}
     environment:
-      - PORT=${PORT}
+      - GITCLOUD_BACKEND_PORT=${GITCLOUD_BACKEND_PORT}
     restart: always
     stdin_open: true
     tty: true
