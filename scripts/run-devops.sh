@@ -14,10 +14,8 @@ run_example () {
 
 	echo "--- Building docker images."
 	export DOCKER_IMAGE=gitcloud-backend-${SOFTWARE_VERSION}
-	export DOCKER_VERSION="$(date +%Y.%m.%d)-$(git rev-parse --short HEAD)"
 	
 	echo "--- Docker Image: ${DOCKER_IMAGE}"
-	echo "--- Docker Version: ${DOCKER_VERSION}"
 	docker-compose up ${CONTAINER}
 
 	popd > /dev/null
