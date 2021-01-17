@@ -9,12 +9,6 @@ build_image () {
 
 	pushd services/${SERVICE}/images > /dev/null
 
-	# Check if relese exists.
-	if [[ ! -d "release" ]]; then
-		echo "--- Release folder not found."
-		exit 1
-	fi
-
 	echo "--- Extract software metadata."
 	SOFTWARE_VERSION=0.1.0
 
