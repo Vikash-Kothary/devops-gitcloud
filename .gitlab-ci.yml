@@ -42,10 +42,10 @@ build:
   script:
     - make build-devops
 
-# release:
-#   stage: release
-#   script:
-#     - make release-devops
+release:
+  stage: release
+  script:
+    - make release-devops
 #   only:
 #     - develop
 

@@ -56,7 +56,7 @@ init-devops:
 .PHONY: release-devops #: Release and push docker images
 release: release-devops # alias for quick access
 release-devops:
-	@false
+	@${SHELL} scripts/release-devops.sh
 
 .PHONY: package-devops #: Package Helm Charts
 package: package-devops # alias for quick access
