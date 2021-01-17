@@ -9,13 +9,7 @@ build_image () {
 
 	pushd services/${SERVICE}/images > /dev/null
 
-	echo "--- Extract software metadata."
-	SOFTWARE_VERSION=0.1.0
-
-	echo "--- Building docker images."
-	export DOCKER_IMAGE=${SERVICE}-${SOFTWARE_VERSION}
-	
-	echo "--- Docker Image: ${DOCKER_IMAGE}"
+	echo "--- Building Docker images."
 	docker-compose build
 
 	# Exit with error if build fails
