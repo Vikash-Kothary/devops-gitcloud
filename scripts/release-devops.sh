@@ -10,7 +10,7 @@ release_image () {
 	pushd services/${SERVICE}/images > /dev/null
 
 	BUILD_DOCKER_IMAGE=${SERVICE}:latest
-	# docker pull ${BUILD_DOCKER_IMAGE}
+	docker pull ${BUILD_DOCKER_IMAGE}
 	
 	# With Software Version
 	SOFTWARE_VERSION=0.1.0
