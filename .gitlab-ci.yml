@@ -46,8 +46,8 @@ release:
   stage: release
   script:
     - make release-devops
-#   only:
-#     - develop
+  only:
+    - develop
 
 # package:
 #   stage: package
