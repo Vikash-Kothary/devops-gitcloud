@@ -9,8 +9,8 @@ release_image () {
 
 	pushd services/${SERVICE}/images > /dev/null
 
-	BUILD_DOCKER_IMAGE=${SERVICE}:latest
-	docker pull ${BUILD_DOCKER_IMAGE}
+	# BUILD_DOCKER_IMAGE=${SERVICE}:latest
+	# docker pull ${BUILD_DOCKER_IMAGE}
 
 	# Exit with error if pull fails
 	if [[ $? == 1 ]]; then
@@ -22,8 +22,13 @@ release_image () {
 	export DOCKER_IMAGE=${DOCKER_REGISTRY}/${SERVICE}-${SOFTWARE_VERSION}
 	export DOCKER_VERSION=latest
 	echo "--- Tag 1: ${DOCKER_IMAGE}:${DOCKER_VERSION}"
-	docker tag "${BUILD_DOCKER_IMAGE}" "${DOCKER_IMAGE}:${DOCKER_VERSION}"
-	docker push "${DOCKER_IMAGE}:${DOCKER_VERSION}"
+	docker-compose build 
+	docker-compose push
+
+	# TODO: replace rebuild with tagging
+	# Currently rebuilding because lack of cache
+	# docker tag "${BUILD_DOCKER_IMAGE}" "${DOCKER_IMAGE}:${DOCKER_VERSION}"
+	# docker push "${DOCKER_IMAGE}:${DOCKER_VERSION}"
 
 	# Exit with error if push fails
 	if [[ $? == 1 ]]; then
@@ -34,8 +39,12 @@ release_image () {
 	GIT_COMMIT_SHORT_SHA=$(git rev-parse --short HEAD)
 	export DOCKER_VERSION="$(date +%Y.%m)-${GIT_COMMIT_SHORT_SHA}"
 	echo "--- Tag 2: ${DOCKER_IMAGE}:${DOCKER_VERSION}"
-	docker tag "${BUILD_DOCKER_IMAGE}" "${DOCKER_IMAGE}:${DOCKER_VERSION}"
-	docker push "${DOCKER_IMAGE}:${DOCKER_VERSION}"
+	docker-compose build 
+	docker-compose push
+	
+	# TODO: replace rebuild with tagging
+	# docker tag "${BUILD_DOCKER_IMAGE}" "${DOCKER_IMAGE}:${DOCKER_VERSION}"
+	# docker push "${DOCKER_IMAGE}:${DOCKER_VERSION}"
 
 	# Exit with error if push fails
 	if [[ $? == 1 ]]; then
